@@ -1,52 +1,19 @@
-# Prerequisites
-*.d
+#include<stdio.h>
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+void towerOfHanoi(int n, char cotA, char cotC, char cotB){
+	if (n==1){
+		printf ("%c-->%c\n", cotA, cotC);
+	}else {
+		towerOfHanoi(n-1, cotA, cotB, cotC);
+		printf("%c-->%c\n", cotA, cotC );
+		towerOfHanoi(n-1, cotC, cotB, cotA);
+	}
+}
 
-# Linker output
-*.ilk
-*.map
-*.exp
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+int main()
+{
+	int n;
+	printf("Number of dishes:"); scanf("%d", &n);
+	towerOfHanoi(n, 'A','C','B');
+}
